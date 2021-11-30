@@ -3,7 +3,7 @@ var router = express.Router();
 
 const api = require ('../api');
 
-/* GET home page. /
+  
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
@@ -20,14 +20,13 @@ router.get('/contacto', (req, res) => {
 
 router.get ('/libros', async (req, res) => {
   const books = await api.getBooks();
-  res.send(books);
+  res.render('pages/libros', {books});
 });
 
-router.get('/libro/:id', async (req,res)=>{
- // console.log("la ruta trajo: "+ req.params.id);
+router.get('/libro/:id', async (req, res) => {
+  //console.log('la ruta trajo '+ req.params.id)
   const book = await api.getBookById(req.params.id);
-  res.render ("pages/libro",
-  {    book  });
+  res.render ('pages/libro', {book});
 });
 
 module.exports = router;
