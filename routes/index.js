@@ -3,17 +3,24 @@ var router = express.Router();
 
 const api = require ('../api');
 
-  
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/ GET nosotros page /
+router.get('/resultados',async (req, res) => {
+  const  {titulo} = req.query;
+  console.log(req.query);
+  const results = await api.searchByTitle(titulo);
+  res.send(results);
+});
+
+/* / GET nosotros page / */
 router.get('/nosotros', (req, res) => {
   res.render('pages/nosotros', { title: 'Nosotros' });
 });
 
-/ GET contacto page */
+/* /* / GET contacto page */ 
 router.get('/contacto', (req, res) => {
   res.render('pages/contacto', { title: 'Contacto' });
 });
