@@ -15,6 +15,14 @@ router.get('/resultados',async (req, res) => {
   res.send(results);
 });
 
+router.get("/agregar", (req, res) =>{
+  res.render("pages/agregar");
+  
+})
+
+
+
+
 /* / GET nosotros page / */
 router.get('/nosotros', (req, res) => {
   res.render('pages/nosotros', { title: 'Nosotros' });

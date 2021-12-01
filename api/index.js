@@ -14,6 +14,12 @@ const getBooks = async (id) => {
 
     return books;
 }
+/* TAREA */
+const getAuthors= async () => {
+    const authors= await db.autor.findAll().then(result=> {
+    });
+            return result;
+}
 
 const getBookById = async (id) => { 
     console.log('+++++++++++++')
@@ -28,6 +34,10 @@ const getBookById = async (id) => {
 
     return book;
 }
+
+
+
+
 const searchByTitle = async (titulo) => {
     // Op.substring toma una cadena y le agrega %
     const results = await db.libro.findAll({
@@ -52,5 +62,6 @@ const searchByTitle = async (titulo) => {
 module.exports = {
     getBooks,
     getBookById,
-    searchByTitle
+    searchByTitle,
+    getAuthors
 }
