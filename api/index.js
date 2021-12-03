@@ -58,10 +58,21 @@ const searchByTitle = async (titulo) => {
     return results;
 }
 
-const addBook = (titulo, precio, portada, autorId) => {
+const addBook = async (titulo, precio, portada, autorId) => {
 //aca vamos a agregar un libro
     console.log("Llego:", titulo, precio, portada, autorId);
+//tengo que armar  el INSERT INTO libro
+
+const newBook = await db.libro.create({
+    titulo,
+    precio,
+    portada,
+    autorIdAutor: autorId
+
+});
+return newBook;
 }
+
 
 
 // Exportamos las funciones
