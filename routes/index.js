@@ -40,6 +40,18 @@ await api.addBook(titulo, precio, portada, autor);
 
   res.send('Vas Bien');
 });
+/* GET agregar autor page */
+router.get("/agregar-autor", (req, res) => {
+  res.render("pages/agregar-autor");
+
+});
+router.post("/agregar-autor", (req,res) =>{
+  //MOSTRAR EN CONSOLA LO QUE TIPEO EL USUARIO
+  console.log("el usuario tipeo:", req.body.nombreCompleto);
+  res.send("Estas en la version de POST");
+} )
+
+
 
 /* GET nosotros page */
 router.get('/nosotros', (req, res) => {
@@ -66,5 +78,7 @@ router.get('/libro/:id', async (req, res) => {
 
   res.render('pages/libro', { book });
 });
+
+
 
 module.exports = router;
